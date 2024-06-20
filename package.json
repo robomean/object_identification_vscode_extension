@@ -10,14 +10,22 @@
     "Other"
   ],
   "activationEvents": [
+    "onCommand:mathobjectidentifier.processText",
     "onCommand:mathobjectidentifier.describeObject"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "mathobjectidentifier.describeObject",
+        "command": "mathobjectidentifier.processText",
         "title": "Describe mathematical object"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "mathobjectidentifier.describeObject",
+        "key": "ctrl+enter",
+        "when": "editorTextFocus"
       }
     ],
     "configuration": {
@@ -42,6 +50,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/tmp": "^0.2.6",
     "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
@@ -53,6 +62,7 @@
   "dependencies": {
     "axios": "^1.6.3",
     "chatgpt": "^5.2.5",
-    "openai": "^4.24.1"
+    "openai": "^4.24.1",
+    "tmp": "^0.2.3"
   }
 }
